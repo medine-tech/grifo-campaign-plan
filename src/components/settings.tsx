@@ -26,7 +26,9 @@ export function Settings({ user }: { user: User }) {
             <br />
             {user.email}
             <br />
-            {user.role === "admin" ? "Administración" : "Miembro"}
+            {user.role === "admin"
+              ? "Cuenta administradora"
+              : "Miembro de la casa"}
           </p>
           <form
             onSubmit={async (e) => {

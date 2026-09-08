@@ -4,7 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Compass, KeyRound } from "lucide-react";
 import { api, ErrorBox } from "./ui";
-export function AuthForm({ register = false }: { register?: boolean }) {
+export function AuthForm({
+  register = false,
+  nextPath = "/dashboard",
+}: {
+  register?: boolean;
+  nextPath?: string;
+}) {
   const router = useRouter();
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
@@ -50,7 +56,7 @@ export function AuthForm({ register = false }: { register?: boolean }) {
                   method: "POST",
                   body: JSON.stringify(value),
                 });
-                router.push("/dashboard");
+                router.push(register ? "/onboarding" : nextPath);
                 router.refresh();
               } catch (e) {
                 setError((e as Error).message);
@@ -131,6 +137,11 @@ export function AuthForm({ register = false }: { register?: boolean }) {
               </Link>
             </span>
           </div>
+          <p className="auth-switch">
+            <Link href="/onboarding">
+              Empieza aquí: conoce las islas y tu primera acción ↗
+            </Link>
+          </p>
         </div>
         <p className="auth-footnote">
           Construido en abierto por MedineTech · Operación Grifo

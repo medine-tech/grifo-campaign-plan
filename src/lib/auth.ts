@@ -34,9 +34,9 @@ export async function session(userId: string, c: Connection = { query }) {
   return value;
 }
 export async function currentUser(): Promise<User | null> {
-  await ready();
   const value = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!value) return null;
+  await ready();
   const { rows } = await query(
     "SELECT u.id,u.name,u.email,u.role FROM users u JOIN sessions s ON s.user_id=u.id WHERE s.hash=$1 AND s.expires_at>now()",
     [hash(value)],

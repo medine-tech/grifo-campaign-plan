@@ -1,0 +1,140 @@
+GRIFO · GUÍA DE INICIO
+Video ilustrado de 4 minutos y 45 segundos.
+Ana y Luis son ejemplos ficticios. Narración sintética en español.
+
+01. De la intención a la acción.
+
+00:00:00.000 → 00:00:16.098
+
+Bienvenido a Grifo. Esta guía ilustrada te ayudará a convertir una intención en una acción clara, con una persona responsable y evidencia.
+
+Usaremos dos ejemplos ficticios: Ana, una persona con cuenta, y Luis, un miembro de la comunidad. No son registros reales.
+
+02. Un código. Tu propia cuenta.
+
+00:00:16.098 → 00:00:31.258
+
+Para entrar necesitas un código de invitación de administración. Solo puede usarse una vez y vence a los siete días.
+
+Abre Crear cuenta, introduce el código y elige tu propia contraseña de al menos doce caracteres. Al registrarte llegarás a Empieza aquí.
+
+03. Cuenta y miembro cumplen roles distintos.
+
+00:00:31.258 → 00:00:47.595
+
+Una cuenta permite entrar y hacerse responsable del trabajo. Una ficha de miembro identifica a la persona de la comunidad relacionada con ese trabajo.
+
+En nuestro ejemplo, Ana tiene cuenta y acompaña a Luis. Luis es el miembro del registro. Tener ficha de miembro no crea una cuenta.
+
+04. Encontrar, acompañar y probar.
+
+00:00:47.595 → 00:01:06.528
+
+Cazadores reúne miembros nuevos y reactivaciones. Conserva contexto, etapa de contacto y próxima acción. Respeta el estado No contactar.
+
+Seguimiento reúne compromisos, logros diarios y rachas semanales. Ideas sirve para describir un problema, proponer una solución y registrar el resultado del experimento.
+
+05. Participar y demostrar resultados.
+
+00:01:06.528 → 00:01:27.003
+
+Competencia distingue entradas a concursos de observaciones con fuentes públicas. Una entrada documenta proyecto, demo, proceso, impacto y publicación.
+
+Ventas registra concepto, importe, moneda y evidencia del pago. Referidos sigue la invitación hasta el pago confirmado. Un trial, por sí solo, no acredita un referido.
+
+06. Coordinar también es trabajo.
+
+00:01:27.003 → 00:01:43.718
+
+Administración organiza tareas, decisiones, fechas y responsables. Una responsabilidad propuesta debe ser aceptada por la persona.
+
+Esta isla es un espacio de coordinación. Trabajar en ella no convierte tu cuenta en administradora ni te concede permiso para acreditar puntos.
+
+07. Elige la isla y el tipo de registro.
+
+00:01:43.718 → 00:01:58.591
+
+Vamos con un ejemplo. Ana acompaña a Luis para preparar la demo de su proyecto. Entra en Competencia y crea una Entrada a concurso.
+
+Usa un título concreto: Preparar la demo del proyecto de Luis. Describe el proyecto y el resultado que quieren demostrar.
+
+08. Una identidad. Un responsable claro.
+
+00:01:58.591 → 00:02:16.395
+
+Busca primero la ficha de Luis y reutilízala. Si no existe, crea una sola ficha con la información necesaria para identificarlo.
+
+Relaciona el registro con Luis y asigna a Ana como responsable. Esa misma ficha de miembro puede relacionarse con registros de otras islas, sin duplicar a la persona.
+
+09. Escribe qué sigue y para cuándo.
+
+00:02:16.395 → 00:02:34.037
+
+Añade una próxima acción observable: por ejemplo, revisar con Luis el enlace de la demo. Elige un vencimiento acordado y una prioridad realista.
+
+Mantén el estado del trabajo al día: Por hacer, En curso, Bloqueado o Completado. Si hay un bloqueo, explica qué necesitan para avanzar.
+
+10. Vincula evidencia que se pueda revisar.
+
+00:02:34.037 → 00:02:50.415
+
+Cuando haya un resultado, añade la evidencia y completa los campos que pide ese tipo de registro. La prueba debe corresponder a lo que ocurrió.
+
+Para pagos, usa enlaces con permisos adecuados en el servicio que guarda el comprobante. Pegar el enlace en Grifo no vuelve público el archivo.
+
+11. Envía a revisión cuando corresponda.
+
+00:02:50.415 → 00:03:10.277
+
+Los registros que pueden puntuar tienen una revisión separada. Sin enviar pasa a En revisión; después puede quedar Validado internamente y finalmente Acreditado.
+
+Solo una cuenta administradora puede acreditar, con respaldo oficial y las comprobaciones de evidencia, duplicados y límites. El sistema calcula los puntos según las reglas.
+
+12. Completar trabajo no acredita puntos.
+
+00:03:10.277 → 00:03:29.130
+
+Completado significa que el trabajo terminó. Validado internamente indica una revisión; Acreditado confirma la acreditación. Son estados diferentes.
+
+En esta entrada, completar el proyecto no acredita puntos. Necesita evidencia del resultado y respaldo oficial. Editar el registro reinicia su revisión.
+
+13. Cada paso necesita una acción consciente.
+
+00:03:29.130 → 00:03:48.086
+
+Grifo conecta el trabajo mediante miembros, responsables y evidencias. No mueve registros automáticamente entre islas.
+
+Tampoco publica ni envía mensajes automáticamente en Skool o en X. La persona responsable realiza esas acciones y registra el resultado. La aplicación no sustituye el marcador oficial.
+
+14. Da a tu agente solo los permisos necesarios.
+
+00:03:48.086 → 00:04:09.935
+
+Si usas un agente, crea un token vinculado a tu cuenta y elige su vencimiento. Read permite leer; write permite escribir. Approve requiere una cuenta administradora.
+
+Guarda el secreto en una variable privada llamada GRIFO, guion bajo, TOKEN. Nunca lo pegues en publicaciones, capturas o archivos públicos. Los agentes respetan las mismas reglas de revisión.
+
+15. El contrato de la API está disponible.
+
+00:04:09.935 → 00:04:27.485
+
+La documentación de la API está en la ruta api, barra, documentation. El contrato Open API está en api, barra, openapi punto json.
+
+En Mis agentes puedes gestionar y revocar tus tokens. Las operaciones sobre registros requieren autenticación, aunque la documentación sea pública.
+
+16. Empieza con algo real y pequeño.
+
+00:04:27.485 → 00:04:45.000
+
+Ahora elige una isla y registra una acción real. Identifica al miembro cuando corresponda, acuerda una persona responsable y define el siguiente paso con su fecha.
+
+Aporta evidencia cuando exista y revisa el avance. Puedes volver a esta guía desde Empieza aquí. El objetivo es que todos sepan qué sigue.
+
+Recursos
+
+- Empieza aquí: https://grifo-campaign-plan.vercel.app/onboarding
+- Documentación: https://grifo-campaign-plan.vercel.app/api/documentation
+- OpenAPI: https://grifo-campaign-plan.vercel.app/api/openapi.json
+- Mis agentes: https://grifo-campaign-plan.vercel.app/tokens
+
+Variable privada para el agente: GRIFO_TOKEN. Los permisos disponibles son read, write y approve; este último requiere una cuenta administradora. Elige un vencimiento al crear el token; puedes revocarlo desde Mis agentes.

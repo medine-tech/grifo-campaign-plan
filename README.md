@@ -3,6 +3,7 @@
 Centro de operaciones de la Casa del Grifo: siete islas para coordinar personas, ideas, concursos, ventas y referidos. Interfaz en español, cuentas con contraseña y una API documentada para agentes.
 
 - **Aplicación:** https://grifo-campaign-plan.vercel.app
+- **Empieza aquí:** https://grifo-campaign-plan.vercel.app/onboarding
 - **API interactiva:** https://grifo-campaign-plan.vercel.app/api/documentation
 - **OpenAPI 3.1:** https://grifo-campaign-plan.vercel.app/api/openapi.json
 - **Guía para agentes:** https://grifo-campaign-plan.vercel.app/llms.txt
@@ -22,6 +23,14 @@ Centro de operaciones de la Casa del Grifo: siete islas para coordinar personas,
 | Referidos      | Invitaciones y pagos        | Acompañar una relación hasta su conversión |
 
 Cada registro comparte miembro, responsable, fecha, próxima acción, estado y evidencia. La revisión interna y la acreditación oficial son estados distintos. Los dashboards muestran datos persistidos; no contienen actividad ficticia.
+
+## Onboarding
+
+La guía pública `/onboarding` explica las siete islas, cuenta/miembro/responsable, estados de trabajo y acreditación, e incluye un recorrido ilustrativo de seis pasos. Sus controles no crean actividad ni consultan los registros de campaña. Las cuentas nuevas llegan a la guía después del registro; las demás pueden abrirla desde el menú, el dashboard y las páginas de acceso.
+
+Los enlaces de la guía conservan la isla elegida al iniciar sesión. El destino se limita a rutas conocidas para impedir redirecciones externas. La sección opcional para agentes ofrece instrucciones copiables sin credenciales y enlaces al contrato API.
+
+El video ilustrado, subtítulos en español y transcripción están en `public/onboarding/`. Se reproduce a petición, sin autoplay; puede descargarse para compartir. Ana y Luis son personajes ficticios del ejemplo. No hay progreso obligatorio ni cambios de permisos por completar el recorrido.
 
 ## Ejecutar localmente
 

@@ -87,6 +87,26 @@ h3 {
 .muted {
   color: var(--muted);
 }
+.onboarding-callout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  background: #eaf0ec;
+  border: 1px solid #d4dfd6;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #314e42;
+}
+.onboarding-callout > span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 650;
+}
 small {
   font-size: 12px;
 }

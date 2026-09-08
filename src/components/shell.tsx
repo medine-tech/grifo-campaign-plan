@@ -33,6 +33,7 @@ export function Shell({
       href={href}
       onClick={() => setOpen(false)}
       className={"nav-link " + (path === href ? "active" : "")}
+      aria-current={path === href ? "page" : undefined}
     >
       {icon}
       <span>{label}</span>
@@ -63,6 +64,7 @@ export function Shell({
         </div>
         <nav aria-label="Navegación principal">
           <div className="nav-group">LA CAMPAÑA</div>
+          {link("/onboarding", "Empieza aquí", <Compass size={18} />)}
           {link("/dashboard", "Vista general", <LayoutDashboard size={18} />)}
           {link("/map", "Mapa de territorios", <Map size={18} />)}
           {link("/members", "Miembros", <Users size={18} />)}
@@ -97,7 +99,7 @@ export function Shell({
               {user.name}
               <small>
                 {user.role === "admin"
-                  ? "Administración"
+                  ? "Cuenta administradora"
                   : "Miembro de la casa"}
               </small>
             </span>

@@ -57,6 +57,15 @@ export function Dashboard({ name }: { name: string }) {
           Explorar el mapa <ArrowUpRight size={17} />
         </Link>
       </div>
+      <Link href="/onboarding" className="onboarding-callout">
+        <span>
+          <strong>¿Primera vez en Grifo?</strong> Conoce las islas, tu
+          responsabilidad y cómo registrar una acción.
+        </span>
+        <span>
+          Empieza aquí <ArrowRight size={16} aria-hidden="true" />
+        </span>
+      </Link>
       <div className="stats-grid">
         <Stat
           label="Puntos acreditados"
