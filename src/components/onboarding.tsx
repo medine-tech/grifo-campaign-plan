@@ -1,10 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef, useState, useSyncExternalStore } from "react";
 import { ArrowLeft, ArrowRight, Check, Copy, RotateCcw } from "lucide-react";
 import { entryLink, walkthrough } from "@/lib/onboarding";
 import styles from "@/app/onboarding/onboarding.module.css";
+
+const subscribeToHydration = () => () => {};
+const clientReady = () => true;
+const serverReady = () => false;
+
+// The HTML is visible before React attaches handlers. Keep its controls disabled
+// until hydration finishes so an early click never appears to be accepted.
+function useInteractiveReady() {
+  return useSyncExternalStore(subscribeToHydration, clientReady, serverReady);
+}
 
 export function CopyGuideText({
   value,
@@ -13,11 +23,13 @@ export function CopyGuideText({
   value: string;
   label: string;
 }) {
+  const ready = useInteractiveReady();
   const [status, setStatus] = useState<"idle" | "copied" | "error">("idle");
   return (
     <div className={styles.copyAction}>
       <button
         className="button"
+        disabled={!ready}
         onClick={async () => {
           try {
             await navigator.clipboard.writeText(value);
@@ -53,6 +65,7 @@ const stepLabels = [
 ];
 
 export function FirstRecordWalkthrough() {
+  const ready = useInteractiveReady();
   const [step, setStep] = useState(0);
   const [answer, setAnswer] = useState<number | null>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -70,6 +83,7 @@ export function FirstRecordWalkthrough() {
           {stepLabels.map((label, index) => (
             <li key={label}>
               <button
+                disabled={!ready}
                 onClick={() => goTo(index)}
                 aria-current={step === index ? "step" : undefined}
                 aria-label={`Paso ${index + 1}: ${label}`}
@@ -83,7 +97,9 @@ export function FirstRecordWalkthrough() {
       </nav>
       <div className={styles.stepContent}>
         <p className={styles.stepCount} aria-live="polite">
-          Paso {step + 1} de {walkthrough.length}
+          {ready
+            ? `Paso ${step + 1} de ${walkthrough.length}`
+            : "Preparando el recorrido…"}
         </p>
         <h3 ref={heading} tabIndex={-1} className={styles.stepTitle}>
           {current.title}
@@ -111,6 +127,7 @@ export function FirstRecordWalkthrough() {
             ].map((label, index) => (
               <button
                 key={label}
+                disabled={!ready}
                 className={answer === index ? styles.selectedAnswer : ""}
                 onClick={() => setAnswer(index)}
                 aria-pressed={answer === index}
@@ -143,17 +160,25 @@ export function FirstRecordWalkthrough() {
         <div className={styles.stepActions}>
           <button
             className="button"
-            disabled={step === 0}
+            disabled={!ready || step === 0}
             onClick={() => goTo(step - 1)}
           >
             <ArrowLeft size={16} aria-hidden="true" /> Anterior
           </button>
           {step < walkthrough.length - 1 ? (
-            <button className="button primary" onClick={() => goTo(step + 1)}>
+            <button
+              className="button primary"
+              disabled={!ready}
+              onClick={() => goTo(step + 1)}
+            >
               Siguiente <ArrowRight size={16} aria-hidden="true" />
             </button>
           ) : (
-            <button className="button" onClick={() => goTo(0)}>
+            <button
+              className="button"
+              disabled={!ready}
+              onClick={() => goTo(0)}
+            >
               <RotateCcw size={16} aria-hidden="true" /> Repetir recorrido
             </button>
           )}
