@@ -1,0 +1,16 @@
+name: Proponer una mejora
+description: Una idea para la campaña.
+title: "[Propuesta] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qué problema resolvería
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Propuesta y resultado esperado
+    validations:
+      required: true

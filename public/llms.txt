@@ -1,0 +1,34 @@
+# Grifo — guía para agentes
+
+Grifo organiza una campaña compartida en siete islas. La documentación es pública; los registros requieren autorización.
+
+- Documentación interactiva: /api/documentation
+- Contrato OpenAPI 3.1: /api/openapi.json
+- API base: /api/v1
+- Repositorio: https://github.com/medine-tech/grifo-campaign-plan
+
+## Conectar
+La persona genera un token en /tokens, elige read, write y (solo administradores) approve, y define una vigencia de hasta 90 días. Usa Authorization: Bearer grifo_... en HTTPS. El secreto se entrega una vez; nunca lo publiques en issues, documentación o mensajes de un equipo.
+
+## Descubrir y operar
+GET /islands devuelve islas y tipos. GET /users devuelve responsables; GET /members devuelve fichas compartidas. Lee el contrato OpenAPI antes de crear un registro.
+
+Islas: cazadores, seguimiento, ideas, competencia, ventas, administracion, referidos.
+CRUD: GET/POST /islands/{isla}/records y GET/PUT/DELETE /islands/{isla}/records/{id}.
+Usa Idempotency-Key único por alta lógica. Reintenta la misma solicitud con la misma clave; un cuerpo diferente genera 409. PUT exige el objeto editable completo y version actual; DELETE exige ?version=N. Tras 409 relee el registro antes de intentar otro cambio.
+Listados de registros aceptan page, perPage (1–100), q, status, verification, memberId y assigneeId. Revisa pagination.total para recorrer todas las páginas.
+
+Los usuarios invitados leen la campaña compartida. Solo autor, responsable o admin editan registros. Miembros se editan por autor o admin. Un token tiene como máximo los permisos de su usuario. No permite crear tokens, invitaciones o cambiar contraseñas.
+
+## Evidencia y puntuación
+POST /islands/{isla}/records/{id}/review recibe verification, officialUrl, reviewNote y version.
+pending: borrador; submitted: enviado; validated: validación interna; accredited: reconocimiento oficial registrado; rejected: rechazado. Solo admin con write y approve acredita/valida/rechaza. Los demás pueden enviar registros propios o asignados a submitted.
+
+Nunca inventes evidencia ni acreditaciones. Comprueba la fuente oficial antes de solicitar accredited. Se requiere officialUrl; un rechazo o retirada de acreditación exige reviewNote. No presentes validated como puntos oficiales. El servidor calcula los puntos y verifica duplicados, máximo 5 ventas por miembro/temporada, un logro por día y una racha por semana. Referidos necesitan pago confirmado. Para editar o eliminar un registro acreditado, administración debe retirar primero la acreditación con motivo.
+
+El máximo de entradas por persona del concurso Astra sigue pendiente de confirmación de sus bases. El bonus X requiere enlace, #AstraImperial, la frase "GPT-6 Astra" y que Skool enlace el post; la revisión es humana. Completar una tarea no acredita puntos.
+
+GET /dashboard separa acreditados, pendientes y potenciales. La instantánea aportada del cierre de semana 1 (Grifo 375, Pegaso 519, Águila 308) es histórica, no un marcador en vivo ni una base a sumar automáticamente.
+
+## Errores y límites
+JSON requerido, máximo 64 KB. 401: renueva acceso; 403: no tienes permiso; 404: no encontrado; 409: conflicto o tope; 422: corrige campos; 429: respeta Retry-After. Límite general: 300 solicitudes por minuto y usuario. Fechas de evento YYYY-MM-DD; horarios del reto America/Santiago.

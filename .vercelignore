@@ -1,0 +1,12 @@
+.git
+.next
+.data
+.private
+.agents
+.claude
+.env*
+!/.env.example
+node_modules
+coverage
+test-results
+playwright-report

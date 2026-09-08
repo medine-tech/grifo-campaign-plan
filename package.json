@@ -1,0 +1,42 @@
+{
+  "name": "grifo-campaign-plan",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "predev": "node scripts/prepare-assets.mjs",
+    "prebuild": "node scripts/prepare-assets.mjs",
+    "validate:openapi": "tsx scripts/validate-openapi.ts",
+    "format:check": "prettier --check src scripts tests db docs .github *.md *.json *.ts *.mjs"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@vercel/functions": "^3.9.6",
+    "lucide-react": "^1.43.0",
+    "next": "16.3.4",
+    "pg": "^8.23.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "swagger-ui-dist": "^5.32.15",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@apidevtools/swagger-parser": "^13.0.0",
+    "@types/node": "^20",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.4",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.13",
+    "typescript": "^5"
+  },
+  "type": "module"
+}

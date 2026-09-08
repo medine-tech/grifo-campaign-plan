@@ -1,0 +1,23 @@
+name: Reportar un problema
+description: Algo no funciona como debería.
+title: "[Error] "
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      description: Incluye la isla o ruta. No adjuntes credenciales, comprobantes privados ni datos personales.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Resultado esperado
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Resultado observado
+    validations:
+      required: true
